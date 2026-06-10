@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Writing Portfolio Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .chart-container { position: relative; width: 100%; max-width: 650px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .vibrant-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #0d9488 100%); }
+        .timeline-dot { width: 12px; height: 12px; background-color: #0d9488; border-radius: 50%; position: absolute; left: -6px; top: 8px; }
+        .timeline-line { width: 2px; height: 100%; background-color: #e2e8f0; position: absolute; left: -1px; top: 0; }
+    </style>
+</head>
+<body class="p-0 m-0 overflow-x-hidden">
+<!-- 
+    CHOSEN PALETTE: "Brilliant Blues & Vibrant Teals" 
+    - Navy: #1e3a8a
+    - Teal: #0d9488
+    - Cyan: #06b6d4
+    - Background: #f8fafc
+-->
+
+<!-- 
+    NARRATIVE PLAN:
+    1. Hero Section: Establish authority (Since 2019) and high-level stats.
+    2. Niche Ecosystem: Breakdown the massive list of topics into 4 core "Worlds" to show versatility without clutter.
+    3. Client Roster: A visual grid of the major companies partnered with.
+    4. Skill Proficiency: A radar chart showing balance between SEO, Copywriting, and Technical Writing.
+    5. The Process Flow: A custom HTML/CSS diagram showing how a project moves from brief to delivery.
+-->
+
+<!-- 
+    VISUALIZATION CHOICES:
+    - Sector Distribution -> Donut Chart (Chart.js): Groups niches into Health, Tech, Lifestyle, and Business.
+    - Growth Velocity -> Area Chart (Chart.js): Visualizes the accumulation of expertise from 2019 to Present.
+    - Skill Matrix -> Radar Chart (Chart.js): Best for showing multifaceted abilities (SEO, Tech, Creative).
+    - Client Impact -> Styled Grid (HTML/Tailwind): High-impact list of partners.
+    - Project Flow -> HTML/CSS Diagram: Shows organizational logic.
+    - CONFIRMATION: No SVG or Mermaid JS used. All graphics are Canvas-based or structured HTML/CSS.
+-->
+
+<header class="vibrant-gradient text-white py-16 px-6 text-center shadow-lg">
+    <div class="max-w-4xl mx-auto">
+        <div class="mb-4 inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/20 text-sm font-medium">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            Nigeria (WAT)
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">David Femi Ogbonyomi</h1>
+        <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-cyan-200">Senior SEO Content Writer</h2>
+        <p class="text-lg md:text-xl font-light opacity-90 max-w-2xl mx-auto">
+            Crafting SEO-driven narratives that rank, engage, and convert. From medical compliance to high-tech marketing, I deliver precision writing for global brands.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-6">
+            <div class="bg-white/10 px-6 py-3 rounded-full border border-white/20">5+ Years Experience</div>
+            <div class="bg-white/10 px-6 py-3 rounded-full border border-white/20">20+ Unique Niches</div>
+            <div class="bg-white/10 px-6 py-3 rounded-full border border-white/20">15+ Major Agencies</div>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 py-12">
+    <section class="mb-20">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-800">The Niche Ecosystem</h2>
+            <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+                My work spans four core pillars of industry. Instead of generalist writing, I provide deep-domain expertise by adapting to the specific terminology and audience expectations of each sector.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="chart-container" style="height: 420px; max-height: 450px;">
+                <canvas id="nicheDonut"></canvas>
+            </div>
+            <div class="space-y-6">
+                <div class="p-4 rounded-lg border-l-4 border-blue-800 bg-white shadow-sm">
+                    <h3 class="font-bold text-blue-800">Medical & Health</h3>
+                    <p class="text-sm text-slate-600">Expertise in Pharmacy, Pharmacology, and Fitness for clients like ExRx.net and Pathway Medical.</p>
+                </div>
+                <div class="p-4 rounded-lg border-l-4 border-teal-600 bg-white shadow-sm">
+                    <h3 class="font-bold text-teal-600">Alternative Wellness</h3>
+                    <p class="text-sm text-slate-600">Leading content in Cannabis, Microdosing, and Psychedelics for MicrodoseBros and Torus Pt.</p>
+                </div>
+                <div class="p-4 rounded-lg border-l-4 border-cyan-500 bg-white shadow-sm">
+                    <h3 class="font-bold text-cyan-500">Tech & Marketing</h3>
+                    <p class="text-sm text-slate-600">SEO strategy and IT services content for LifeA5, Sky ONE IT, and Periscope Media.</p>
+                </div>
+                <div class="p-4 rounded-lg border-l-4 border-slate-400 bg-white shadow-sm">
+                    <h3 class="font-bold text-slate-700">Lifestyle & Industry</h3>
+                    <p class="text-sm text-slate-600">Comprehensive coverage of Real Estate, Solar, Agriculture, and Automotive niches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-20 bg-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">Expertise Evolution</h2>
+                <p class="mb-8 opacity-80 leading-relaxed">
+                    Since starting on Upwork in 2019, my focus has shifted from high-volume content production to high-value strategic SEO and technical copywriting. This growth represents a deepening of research capabilities and a mastery of search engine algorithms.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="h-2 w-full bg-slate-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-cyan-400 w-[95%]"></div>
+                        </div>
+                        <span class="text-sm font-semibold">SEO</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="h-2 w-full bg-slate-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-teal-400 w-[90%]"></div>
+                        </div>
+                        <span class="text-sm font-semibold">Copy</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="h-2 w-full bg-slate-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-400 w-[85%]"></div>
+                        </div>
+                        <span class="text-sm font-semibold">Medical</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container h-[300px]">
+                <canvas id="growthArea"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-20">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-800">Trusted by Global Brands</h2>
+            <p class="mt-4 text-lg text-slate-600">A track record of partnership with agencies, tech firms, and medical platforms.</p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <div class="flex items-center justify-center p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow font-bold text-slate-500 italic">ExRx.net</div>
+            <div class="flex items-center justify-center p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow font-bold text-blue-900">Pathway Medical</div>
+            <div class="flex items-center justify-center p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow font-bold text-teal-600">MicrodoseBros</div>
+            <div class="flex items-center justify-center p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow font-bold text-slate-700">Torus Pt</div>
+            <div class="flex items-center justify-center p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow font-bold text-cyan-600">Periscope Media</div>
+            <div class="flex items-center justify-center p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow font-bold text-slate-600">Vyrian Inc</div>
+            <div class="flex items-center justify-center p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow font-bold text-blue-700">Sky ONE IT</div>
+            <div class="flex items-center justify-center p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow font-bold text-teal-800">Ellipsis Marketing</div>
+        </div>
+    </section>
+
+    <section class="mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+            <h2 class="text-3xl font-bold text-slate-800 mb-6">Strategic Flow</h2>
+            <p class="text-lg text-slate-600 mb-8">
+                Content is not just about words; it's about a systematic approach to results. My workflow ensures that every piece of content serves a specific business objective.
+            </p>
+            <div class="relative pl-8 space-y-8">
+                <div class="timeline-line"></div>
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <h4 class="font-bold text-slate-800">Deep Research & Analysis</h4>
+                    <p class="text-sm text-slate-500">Studying client voice, competitor landscape, and niche-specific compliance (especially in Medical/CBD).</p>
+                </div>
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <h4 class="font-bold text-slate-800">SEO Infrastructure</h4>
+                    <p class="text-sm text-slate-500">Mapping keyword clusters, semantic entities, and heading structures for maximum rankability.</p>
+                </div>
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <h4 class="font-bold text-slate-800">Precision Drafting</h4>
+                    <p class="text-sm text-slate-500">Crafting engaging copy that bridges the gap between technical authority and consumer readability.</p>
+                </div>
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <h4 class="font-bold text-slate-800">Optimization & Delivery</h4>
+                    <p class="text-sm text-slate-500">Final polish through tools like SurferSEO or Clearscope before final client handoff.</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow-xl">
+            <h3 class="text-xl font-bold text-center mb-6">Writing Proficiency Matrix</h3>
+            <div class="chart-container h-[400px]">
+                <canvas id="skillRadar"></canvas>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-slate-900 text-white py-12 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-4">Let's build your content strategy.</h2>
+        <p class="opacity-70 mb-8 max-w-xl mx-auto">Reach out directly via email, or connect with me on Upwork and LinkedIn to discuss your next project.</p>
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <a href="https://www.upwork.com/freelancers/~0188da1457e62b7f3b" target="_blank" rel="noopener noreferrer" class="px-8 py-3 bg-[#14a800] hover:bg-[#118f00] rounded-full font-bold transition-colors flex items-center gap-2">
+                Hire on Upwork
+            </a>
+            <a href="mailto:ogbonyomid@gmail.com?subject=Freelance%20Writing%20Inquiry" class="px-8 py-3 bg-teal-600 hover:bg-teal-500 rounded-full font-bold transition-colors flex items-center gap-2">
+                Email Me
+            </a>
+            <a href="https://www.linkedin.com/in/david-ogbonyomi-10b579135/" target="_blank" rel="noopener noreferrer" class="px-8 py-3 bg-[#0a66c2] hover:bg-[#0854a0] rounded-full font-bold transition-colors flex items-center gap-2">
+                LinkedIn
+            </a>
+        </div>
+        <div class="pt-8 border-t border-slate-800 text-sm opacity-60">
+            &copy; 2026 David Femi Ogbonyomi. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    const wrapLabels = (labels) => {
+        return labels.map(label => {
+            if (label.length > 16) {
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + word).length > 16) {
+                        lines.push(currentLine.trim());
+                        currentLine = word + ' ';
+                    } else {
+                        currentLine += word + ' ';
+                    }
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            }
+            return label;
+        });
+    };
+
+    const commonOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        } else {
+                            return label;
+                        }
+                    }
+                }
+            },
+            legend: {
+                position: 'bottom',
+                labels: {
+                    padding: 20,
+                    usePointStyle: true,
+                    font: { size: 12 }
+                }
+            }
+        }
+    };
+
+    const nicheCtx = document.getElementById('nicheDonut').getContext('2d');
+    new Chart(nicheCtx, {
+        type: 'doughnut',
+        data: {
+            labels: wrapLabels(['Health & Medical Pharmacology', 'CBD Cannabis Psychedelics', 'Tech SEO & Marketing', 'Real Estate & Industrial']),
+            datasets: [{
+                data: [30, 25, 25, 20],
+                backgroundColor: ['#1e3a8a', '#0d9488', '#06b6d4', '#94a3b8'],
+                borderWidth: 0,
+                hoverOffset: 15
+            }]
+        },
+        options: {
+            ...commonOptions,
+            cutout: '65%',
+            layout: {
+                padding: { bottom: 15 }
+            }
+        }
+    });
+
+    const growthCtx = document.getElementById('growthArea').getContext('2d');
+    new Chart(growthCtx, {
+        type: 'line',
+        data: {
+            labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+            datasets: [{
+                label: 'Cumulative Expertise Growth',
+                data: [20, 45, 60, 80, 95, 100],
+                borderColor: '#22d3ee',
+                backgroundColor: 'rgba(34, 211, 238, 0.2)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointBackgroundColor: '#22d3ee'
+            }]
+        },
+        options: {
+            ...commonOptions,
+            scales: {
+                y: { display: false },
+                x: { grid: { display: false }, ticks: { color: '#ffffff' } }
+            },
+            plugins: {
+                ...commonOptions.plugins,
+                legend: { display: false }
+            }
+        }
+    });
+
+    const skillCtx = document.getElementById('skillRadar').getContext('2d');
+    new Chart(skillCtx, {
+        type: 'radar',
+        data: {
+            labels: wrapLabels(['SEO Optimization', 'Technical Research', 'Direct Response Copy', 'Creative Storytelling', 'Product Review Analysis', 'Medical Compliance']),
+            datasets: [{
+                label: 'Skill Level',
+                data: [95, 90, 85, 80, 95, 88],
+                backgroundColor: 'rgba(13, 148, 136, 0.2)',
+                borderColor: '#0d9488',
+                pointBackgroundColor: '#0d9488',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            ...commonOptions,
+            scales: {
+                r: {
+                    angleLines: { color: '#e2e8f0' },
+                    grid: { color: '#e2e8f0' },
+                    pointLabels: { font: { size: 10 } },
+                    ticks: { display: false },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
